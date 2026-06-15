@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regex Tests</title>
+</head>
+<body>
+
+<h1>Validation Tests</h1>
+
+<script type="module">
+
+    import {
+        patterns,
+        validateDescription,
+        validateAmount,
+        validateDate,
+        validateCategory
+    }
+        from "./scripts/validators.js";
+
+    console.assert(
+        validateDescription("Lunch at cafeteria"),
+        "Description should pass"
+    );
+
+    console.assert(
+        !validateDescription(" Lunch"),
+        "Leading space should fail"
+    );
+
+    console.assert(
+        validateAmount("12.50"),
+        "Amount should pass"
+    );
+
+    console.assert(
+        !validateAmount("12.567"),
+        "Too many decimals should fail"
+    );
+
+    console.assert(
+        validateDate("2025-09-29"),
+        "Date should pass"
+    );
+
+    console.assert(
+        validateCategory("Food"),
+        "Category should pass"
+    );
+
+    console.assert(
+        patterns.duplicateWords.test("coffee coffee"),
+        "Back-reference regex failed"
+    );
+
+    console.log("All tests passed");
+
+</script>
+
+</body>
+</html>

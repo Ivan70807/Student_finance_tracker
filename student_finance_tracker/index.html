@@ -64,15 +64,19 @@
         <form>
             <label for="description">Description</label>
             <input type="text" id="description">
+            <small id="description-error"></small>
 
             <label for="amount">Amount</label>
-            <input type="number" id="amount">
+            <input type="text" id="amount">
+            <small id="amount-error"></small>
 
             <label for="category">Category</label>
             <input type="text" id="category">
+            <small id="category-error"></small>
 
             <label for="date">Date</label>
             <input type="date" id="date">
+            <small id="date-error"></small>
 
             <button type="submit">Add Transaction</button>
         </form>
@@ -110,6 +114,7 @@
 <footer>
     <p>Student Finance Tracker</p>
 </footer>
+<script type="module" src="./scripts/main.js"></script>
 
 </body>
 </html>

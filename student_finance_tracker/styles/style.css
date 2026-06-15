@@ -98,3 +98,13 @@ button {
         margin: 0 auto;
     }
 }
+small {
+    display: block;
+    min-height: 1rem;
+    color: red;
+    font-size: 0.85rem;
+}
+
+.input-error {
+    border: 2px solid red;
+}

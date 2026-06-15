@@ -5,6 +5,30 @@ import {
     validateDate
 } from "./validators.js";
 
+import { state } from "./state.js";
+
+state.records = [
+    {
+        id: "txn_1",
+        description: "Lunch at cafeteria",
+        amount: 12.50,
+        category: "Food",
+        date: "2025-09-25"
+    },
+    {
+        id: "txn_2",
+        description: "Bus pass",
+        amount: 20.00,
+        category: "Transport",
+        date: "2025-09-20"
+    }
+];
+
+import { renderTransactions }
+    from "./ui.js";
+
+renderTransactions();
+
 const description = document.getElementById("description");
 const amount = document.getElementById("amount");
 const category = document.getElementById("category");

@@ -128,3 +128,11 @@ const budgetInput =
 budgetInput.addEventListener("input", () => {
     updateStats();
 });
+const toggle =
+    document.getElementById("theme-toggle");
+
+toggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+});

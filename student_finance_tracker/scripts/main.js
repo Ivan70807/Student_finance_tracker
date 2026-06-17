@@ -36,6 +36,8 @@ const searchInput =
 const caseSensitive =
     document.getElementById("case-sensitive");
 
+const sortBy =
+    document.getElementById("sort-by");
 
 searchInput.addEventListener(
     "input",
@@ -71,6 +73,48 @@ searchInput.addEventListener(
             ).textContent = "";
 
         }
+
+    }
+);
+sortBy.addEventListener(
+    "change",
+    () => {
+
+        const value =
+            sortBy.value;
+
+        if (value === "date") {
+
+            state.records.sort(
+                (a, b) =>
+                    new Date(b.date) -
+                    new Date(a.date)
+            );
+
+        }
+
+        if (value === "description") {
+
+            state.records.sort(
+                (a, b) =>
+                    a.description.localeCompare(
+                        b.description
+                    )
+            );
+
+        }
+
+        if (value === "amount") {
+
+            state.records.sort(
+                (a, b) =>
+                    b.amount -
+                    a.amount
+            );
+
+        }
+
+        renderTransactions();
 
     }
 );

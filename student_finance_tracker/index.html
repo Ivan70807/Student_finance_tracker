@@ -86,8 +86,21 @@
         <h2>Transactions</h2>
 
         <div class="search-controls">
-            <input type="text" placeholder="Regex Search">
-            <button>Search</button>
+
+            <input
+                    type="text"
+                    id="search-pattern"
+                    placeholder="Enter regex pattern">
+
+            <label>
+                <input
+                        type="checkbox"
+                        id="case-sensitive">
+                Case Sensitive
+            </label>
+
+            <small id="regex-error"></small>
+
         </div>
 
         <div

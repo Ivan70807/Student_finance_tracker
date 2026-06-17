@@ -7,6 +7,10 @@ import {
 
 import { state } from "./state.js";
 
+import { renderTransactions } from "./ui.js";
+
+import { compileRegex } from "./search.js";
+
 state.records = [
     {
         id: "txn_1",
@@ -24,60 +28,49 @@ state.records = [
     }
 ];
 
-import { renderTransactions }
-    from "./ui.js";
-
 renderTransactions();
 
-const description = document.getElementById("description");
-const amount = document.getElementById("amount");
-const category = document.getElementById("category");
-const date = document.getElementById("date");
+const searchInput =
+    document.getElementById("search-pattern");
 
-function showValidation(input, isValid, errorId, message) {
-    const error = document.getElementById(errorId);
+const caseSensitive =
+    document.getElementById("case-sensitive");
 
-    if (isValid) {
-        error.textContent = "";
-        input.classList.remove("input-error");
-    } else {
-        error.textContent = message;
-        input.classList.add("input-error");
+
+searchInput.addEventListener(
+    "input",
+    () => {
+
+        const flags =
+            caseSensitive.checked
+                ? "g"
+                : "gi";
+
+        const regex =
+            compileRegex(
+                searchInput.value,
+                flags
+            );
+
+        renderTransactions(regex);
+
+        if (
+            searchInput.value &&
+            !regex
+        ) {
+
+            document.getElementById(
+                "regex-error"
+            ).textContent =
+                "Invalid regex pattern";
+
+        } else {
+
+            document.getElementById(
+                "regex-error"
+            ).textContent = "";
+
+        }
+
     }
-}
-
-description.addEventListener("input", () => {
-    showValidation(
-        description,
-        validateDescription(description.value),
-        "description-error",
-        "Description cannot start or end with spaces."
-    );
-});
-
-amount.addEventListener("input", () => {
-    showValidation(
-        amount,
-        validateAmount(amount.value),
-        "amount-error",
-        "Enter a valid amount."
-    );
-});
-
-category.addEventListener("input", () => {
-    showValidation(
-        category,
-        validateCategory(category.value),
-        "category-error",
-        "Letters, spaces and hyphens only."
-    );
-});
-
-date.addEventListener("input", () => {
-    showValidation(
-        date,
-        validateDate(date.value),
-        "date-error",
-        "Use YYYY-MM-DD format."
-    );
-});
+);

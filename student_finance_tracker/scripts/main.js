@@ -10,6 +10,7 @@ import { state } from "./state.js";
 import { renderTransactions } from "./ui.js";
 
 import { compileRegex } from "./search.js";
+import {updateStats, renderWeeklyTrend} from "./stats.js";
 
 state.records = [
     {
@@ -29,6 +30,8 @@ state.records = [
 ];
 
 renderTransactions();
+updateStats();
+renderWeeklyTrend();
 
 const searchInput =
     document.getElementById("search-pattern");
@@ -118,3 +121,10 @@ sortBy.addEventListener(
 
     }
 );
+
+const budgetInput =
+    document.getElementById("budget-cap");
+
+budgetInput.addEventListener("input", () => {
+    updateStats();
+});

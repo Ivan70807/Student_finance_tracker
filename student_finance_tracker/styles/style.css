@@ -108,3 +108,9 @@ small {
 .input-error {
     border: 2px solid red;
 }
+#weekly-trend {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 60px;
+}

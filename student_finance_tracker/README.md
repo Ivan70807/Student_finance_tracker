@@ -25,3 +25,7 @@
 
 ## Run
 Open index.html in browser
+
+## 🎥 Demo Video
+Watch the project demo here:
+https://drive.google.com/file/d/10IgFt_iLWY3i4Y2bk_kPfK2igw0NjRH3/view?usp=sharing

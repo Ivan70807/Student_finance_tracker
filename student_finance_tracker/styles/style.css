@@ -14,6 +14,7 @@
     --space: 12px;
 }
 
+/* DARK MODE */
 body.dark {
     --bg: #0b1220;
     --text: #e5e7eb;
@@ -23,23 +24,26 @@ body.dark {
     --border: rgba(255, 255, 255, 0.10);
 }
 
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* BASE */
 html, body {
     height: 100%;
-}
-
-body {
     font-family: system-ui, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
     line-height: 1.5;
 }
 
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ACCESSIBILITY */
 .skip-link {
     position: absolute;
     top: -100px;
@@ -57,6 +61,7 @@ body {
     top: 0;
 }
 
+/* HEADER */
 header {
     background: var(--card);
     border-bottom: 1px solid var(--border);
@@ -75,9 +80,9 @@ header {
 .logo {
     font-weight: 700;
     font-size: 18px;
-    color: var(--text);
 }
 
+/* NAV */
 nav ul {
     display: flex;
     gap: 20px;
@@ -90,7 +95,7 @@ nav a {
     opacity: 0.8;
     font-size: 14px;
     font-weight: 500;
-    transition: opacity 0.15s ease, color 0.15s ease;
+    transition: 0.15s;
 }
 
 nav a:hover {
@@ -98,6 +103,7 @@ nav a:hover {
     color: var(--primary);
 }
 
+/* LAYOUT */
 main {
     max-width: 1050px;
     margin: auto;
@@ -108,13 +114,21 @@ section {
     margin-bottom: 24px;
 }
 
+/* CARDS */
 .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* GRID */
 .stats-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -133,6 +147,7 @@ section {
     }
 }
 
+/* FORM ELEMENTS */
 label {
     display: block;
     font-size: 14px;
@@ -140,6 +155,24 @@ label {
     opacity: 0.9;
 }
 
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: var(--space);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    transition: 0.15s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 15%, transparent);
+}
+
+/* CHECKBOX */
 .checkbox-label {
     display: inline-flex;
     align-items: center;
@@ -151,26 +184,10 @@ label {
 
 .checkbox-label input {
     width: auto;
-    margin-bottom: 0;
+    margin: 0;
 }
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: var(--space);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--text);
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 15%, transparent);
-}
-
+/* BUTTONS */
 button {
     background: var(--primary);
     color: white;
@@ -179,35 +196,22 @@ button {
     border-radius: var(--radius);
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.15s ease, filter 0.15s ease;
+    transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 button:hover {
     filter: brightness(1.1);
 }
 
+button:active {
+    transform: scale(0.97);
+}
+
 body.dark button:hover {
     filter: brightness(0.9);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--card);
-    border-radius: var(--radius);
-    overflow: hidden;
-}
-
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid var(--border);
-    text-align: left;
-}
-
-tr:hover {
-    background: color-mix(in srgb, var(--text) 3%, transparent);
-}
-
+/* ERROR + STATUS */
 .error {
     color: var(--error);
     font-size: 13px;
@@ -231,6 +235,7 @@ tr:hover {
     font-size: 13px;
 }
 
+/* HIGHLIGHT */
 mark {
     background: color-mix(in srgb, var(--warning) 30%, transparent);
     color: var(--text);
@@ -238,6 +243,7 @@ mark {
     border-radius: 4px;
 }
 
+/* WEEKLY CHART */
 #weekly-trend {
     display: flex;
     align-items: flex-end;
@@ -245,6 +251,7 @@ mark {
     height: 80px;
 }
 
+/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
@@ -255,6 +262,7 @@ footer {
     margin-top: 40px;
 }
 
+/* MOBILE */
 @media (max-width: 600px) {
     .nav-container {
         flex-direction: column;
@@ -281,4 +289,10 @@ footer {
     th, td {
         font-size: 13px;
     }
+}
+
+/* FOCUS (SINGLE CLEAN VERSION) */
+*:focus {
+    outline: 3px solid #4f46e5;
+    outline-offset: 2px;
 }

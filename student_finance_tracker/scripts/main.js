@@ -15,6 +15,22 @@ import {
     saveTransactions,
     loadTransactions} from "./storage.js";
 state.records = loadTransactions();
+function formatCurrency(amount) {
+
+    const currency =
+        localStorage.getItem("currency") || "USD";
+
+    if (currency === "EUR") {
+        return `€${amount.toFixed(2)}`;
+    }
+
+    if (currency === "RWF") {
+        return `RWF ${amount.toFixed(2)}`;
+    }
+
+    // default USD
+    return `$${amount.toFixed(2)}`;
+}
 
 if (state.records.length === 0) {
 
@@ -306,8 +322,6 @@ currencySelect.addEventListener(
         );
     }
 );
-const budgetInput =
-    document.getElementById("budget-cap");
 
 // restore saved value
 budgetInput.value =
@@ -421,3 +435,14 @@ importInput.addEventListener(
         reader.readAsText(file);
     }
 );
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape") {
+
+        document.getElementById("search-pattern").value = "";
+        renderTransactions();
+
+    }
+
+});
+window.formatCurrency = formatCurrency;

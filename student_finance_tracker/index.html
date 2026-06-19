@@ -59,20 +59,20 @@
         <h2>Add Transaction</h2>
         <form id="transaction-form-element">
             <label for="description">Description</label>
-            <input type="text" id="description">
-            <small id="description-error" class="error"></small>
+            <input type="text" id="description" aria-describedby="description-error">
+            <small id="description-error" class="error" role="alert"></small>
 
             <label for="amount">Amount</label>
-            <input type="text" id="amount">
-            <small id="amount-error" class="error"></small>
+            <input type="text" id="amount" aria-describedby="amount-error">
+            <small id="amount-error" class="error" role="alert"></small>
 
             <label for="category">Category</label>
-            <input type="text" id="category">
-            <small id="category-error" class="error"></small>
+            <input type="text" id="category" aria-describedby="category-error">
+            <small id="category-error" class="error" role="alert"></small>
 
             <label for="date">Date</label>
-            <input type="date" id="date">
-            <small id="date-error" class="error"></small>
+            <input type="date" id="date" aria-describedby="date-error">
+            <small id="date-error" class="error" role="alert"></small>
 
             <button type="submit">Add Transaction</button>
         </form>

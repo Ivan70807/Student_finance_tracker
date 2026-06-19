@@ -1,6 +1,6 @@
 import { state } from "./state.js";
 import { highlight } from "./search.js";
-const formatCurrency = window.formatCurrency;
+
 export function renderTransactions(regex = null) {
 
     const container =
@@ -24,7 +24,7 @@ export function renderTransactions(regex = null) {
         container.innerHTML += `
             <div class="card">
                 <h3>${description}</h3>
-                <p>${formatCurrency(record.amount)}</p>
+                <p>${record.amount}</p>
                 <p>${record.category}</p>
                 <p>${record.date}</p>
             </div>

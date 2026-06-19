@@ -15,22 +15,6 @@ import {
     saveTransactions,
     loadTransactions} from "./storage.js";
 state.records = loadTransactions();
-function formatCurrency(amount) {
-
-    const currency =
-        localStorage.getItem("currency") || "USD";
-
-    if (currency === "EUR") {
-        return `€${amount.toFixed(2)}`;
-    }
-
-    if (currency === "RWF") {
-        return `RWF ${amount.toFixed(2)}`;
-    }
-
-    // default USD
-    return `$${amount.toFixed(2)}`;
-}
 
 if (state.records.length === 0) {
 
@@ -445,4 +429,3 @@ document.addEventListener("keydown", (e) => {
     }
 
 });
-window.formatCurrency = formatCurrency;

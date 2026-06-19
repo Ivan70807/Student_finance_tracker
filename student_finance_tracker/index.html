@@ -57,7 +57,7 @@
 
     <section id="transaction-form">
         <h2>Add Transaction</h2>
-        <form>
+        <form id="transaction-form-element">
             <label for="description">Description</label>
             <input type="text" id="description">
             <small id="description-error" class="error"></small>
@@ -110,6 +110,15 @@
             <option>EUR</option>
             <option>RWF</option>
         </select>
+
+        <button id="export-btn">
+            Export JSON
+        </button>
+
+        <input
+                type="file"
+                id="import-json"
+                accept=".json">
     </section>
 
 </main>

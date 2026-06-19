@@ -40,7 +40,8 @@ export function updateStats() {
     const capInput =
         document.getElementById("budget-cap");
 
-    const cap = Number(capInput.value);
+    const cap =
+        Number(localStorage.getItem("budgetCap"));
 
     const message =
         document.getElementById("budget-message");
